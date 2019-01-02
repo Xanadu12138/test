@@ -65,3 +65,8 @@
     width: 100px;
     height: 36px;
 }
+.maintable{
+    display: table;
+    height:100%;
+    width:100%;
+}
