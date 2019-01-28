@@ -94,6 +94,7 @@
     width: 140px;
     float: left;
     
+    
 
 }
 .headnav{
@@ -129,10 +130,44 @@
     z-index: 111111;
     display:block;
     text-decoration: none;
+    cursor: pointer;
     
 
 }
-a:hover{
-    background-color: #e32f2f
+.top-nav-bar:hover{
+    background-color: #e32f2f;
 }
-  
+.submenu{
+    position: absolute;
+    background-color: #fff;
+    z-index: 111111;
+    display: none;
+    border: 1px solid #e3e3e3;
+    list-style: none;
+    width:140px;
+    padding: 0 0;
+}
+.top-nav-bar:hover ul{display:block};
+.submenu-bar{
+    position: relative;
+    height: 40px;
+}
+
+  .subntba{
+    position: relative;   
+    line-height: 36px;
+    color: #555555;
+    margin:0px 10px;
+    display:block;
+    text-decoration: none;
+    border-bottom: #c8c7cc dotted 1px;
+    text-align: center;
+    width: 120px;
+    cursor: pointer;
+  }
+  .subntba:hover{
+      color:red;
+  }
+  .submenu-bar:hover{
+      background: #e3e3e3;
+  }
