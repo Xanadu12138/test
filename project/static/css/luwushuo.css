@@ -91,7 +91,7 @@
     font-size: 15px;
     color: #fff;
     box-sizing: border-box;
-    width: 140px;
+    width: 160px;
     float: left;
     
     
@@ -144,7 +144,7 @@
     display: none;
     border: 1px solid #e3e3e3;
     list-style: none;
-    width:140px;
+    width:157px;
     padding: 0 0;
 }
 .top-nav-bar:hover ul{display:block};
@@ -157,13 +157,14 @@
     position: relative;   
     line-height: 36px;
     color: #555555;
-    margin:0px 10px;
+    margin:0px 5px;
     display:block;
     text-decoration: none;
     border-bottom: #c8c7cc dotted 1px;
     text-align: center;
     width: 120px;
     cursor: pointer;
+    left:10px;
   }
   .subntba:hover{
       color:red;
