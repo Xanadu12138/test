@@ -13,19 +13,20 @@
     float: left;
 }
 .logo{
-    background:url(/project/img/logo.png);
+    background:url(../../img/logo.png);
     background-size: 100%;
     width:260px;
     height:30px;
     float: left;
     margin-top: 28px;
+    cursor: pointer;
 }
 .searchbox{
     position: relative;
     float: right;
     height: 60px;
     width: 400px;
-    margin-top: 12px;
+    margin-top: -7px;
 }
 .searchbox input{
     background: #fff;
@@ -60,7 +61,7 @@
 }
 .btnsignin{
     position: absolute;
-    margin-top: 40px;
+    margin-top: 20px;
     text-align: center;
     right: 0px;
     width: 100px;
@@ -72,3 +73,66 @@
     height:100%;
     width:100%;
 }
+.wrapper{
+    margin:0 AUTO;
+    width:980px;
+    position: relative;
+
+
+}
+.top-nav{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    
+}
+.top-nav-bar{
+    height: 40px;
+    font-size: 15px;
+    color: #fff;
+    box-sizing: border-box;
+    width: 140px;
+    float: left;
+    
+
+}
+.headnav{
+    height: 40px;
+    background: #f84e4e;
+    clear: both;
+    width: 100%;
+    z-index: 111111;
+    top:0px;
+    
+}
+#ntba-home{
+    position: relative;
+    height: 20px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    padding: 10px 31px;
+    z-index: 111111;
+    display:block;
+    text-decoration: none;
+}
+#ntba-home.active{
+    background: #e32f2f;
+}
+.ntba{
+    position: relative;
+    height: 20px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    padding: 10px 31px;
+    z-index: 111111;
+    display:block;
+    text-decoration: none;
+    
+
+}
+a:hover{
+    background-color: #e32f2f
+}
+  
