@@ -344,6 +344,7 @@
 .recomend-list{
     width: 1024px;
     display: block;
+    margin: 0 auto;
 }
 .post-item{
     width:310px;
