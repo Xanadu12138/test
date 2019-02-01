@@ -1,5 +1,8 @@
-function recomend() {
-    for (var i = 0; i <= 5; i++) {
+var groupindex = 1;
+var len ;
+function recomend(data) {
+    len=data.length;
+    for (var i = 6*(groupindex-1); i <= 6*groupindex-1; i++) {
         var re = document.getElementById("recomend");
         if (re != null) {
             var li = document.createElement("li");
@@ -7,21 +10,22 @@ function recomend() {
             re.appendChild(li);
             var a = document.createElement("a");
             a.className = "pitem";
-            a.innerHTML = "<span herf='#' target='_blank'></span>"
+            a.href = "https://weibo.com/571922559?display=0&retcode=6102&is_all=1";
             li.appendChild(a);
             var pdiv = document.createElement("div");
             pdiv.className = "picture";
+            pdiv.style.background = "url("+data[i].background+")";
             a.appendChild(pdiv);
             var newdiv = document.createElement("div");
             newdiv.className = "new";
             a.appendChild(newdiv);
             var tdiv = document.createElement("div");
             tdiv.className="title";
-            tdiv.innerHTML = "这里是主标题";
+            tdiv.innerHTML = data[i].title//"这里是主标题";
             a.appendChild(tdiv);
             var subtdiv =document.createElement("div");
             subtdiv.className="subtitle";
-            subtdiv.innerHTML="这里是副标题";
+            subtdiv.innerHTML =data[i].content;//"这里是副标题";
             a.appendChild(subtdiv);
             var infoul=document.createElement("ul");
             infoul.className="info";
@@ -33,7 +37,7 @@ function recomend() {
             ilike.className="like";
             infoli0.appendChild(ilike);
             var ispan0=document.createElement("span");
-            ispan0.innerHTML="999";
+            ispan0.innerHTML =data[i].like;//"999";
             infoli0.appendChild(ispan0);
             var infoli1=document.createElement("li");
             infoli1.className="info-item";
@@ -42,7 +46,7 @@ function recomend() {
             icomment.className="comment";
             infoli1.appendChild(icomment);
             var ispan1=document.createElement("span");
-            ispan1.innerHTML="999";
+            ispan1.innerHTML = data[i].comment;//"999";
             infoli1.appendChild(ispan1);
             var infoli2=document.createElement("li");
             infoli2.className="info-item";
@@ -51,9 +55,57 @@ function recomend() {
             ishare.className="share";
             infoli2.appendChild(ishare);
             var ispan2=document.createElement("span");
-            ispan2.innerHTML="999";
+            ispan2.innerHTML =data[i].share;//"999";
             infoli2.appendChild(ispan2);
 
         }
+    }
+}
+var xmlhttp;
+var url = "https://easy-mock.com/mock/5c5316067e0da549724ece9f/test/liwushuo";
+function loadXMLDoc()
+{
+xmlhttp=null;
+if (window.XMLHttpRequest)
+  {// code for all new browsers
+  xmlhttp=new XMLHttpRequest();
+  }
+else if (window.ActiveXObject)
+  {// code for IE5 and IE6
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+if (xmlhttp!=null)
+  {
+  xmlhttp.onreadystatechange=state_Change;
+  xmlhttp.open("GET",url,true);
+  xmlhttp.send(null);
+  }
+else
+  {
+  alert("Your browser does not support XMLHTTP.");
+  }
+}
+
+function state_Change()
+{
+if (xmlhttp.readyState==4)
+  {// 4 = "loaded"
+  if (xmlhttp.status==200)
+    {// 200 = OK
+      var b = xmlhttp.responseText;
+      var bjson = JSON.parse(b);
+      recomend(bjson['goods']);
+    }
+  else
+    {
+    alert("Problem retrieving XML data");
+    }
+  }
+}
+function onloadmore() {
+    if (groupindex * 6 < len) {
+        groupindex = groupindex + 1;
+
+        loadXMLDoc();
     }
 }

@@ -10,7 +10,7 @@
     <script type="text/javascript" src="../static/js/1.js"></script>
 </head>
 
-<body onload="recomend()">
+<body onload="loadXMLDoc()">
     <div class="maintable">
         <div class="main">
             <div class="head">
@@ -27,8 +27,8 @@
                 <div class="headnav">
                     <nav>
                         <ul class="top-nav">
-                            <li class="top-nav-bar"><a id="ntba-home" class="active" herf="#">首页</a></li>
-                            <li class="top-nav-bar"><a class="ntba" herf="#">赠送对象<div class="arrow"></div></a>
+                            <li class="top-nav-bar"><a id="ntba-home" class="active" href="#">首页</a></li>
+                            <li class="top-nav-bar"><a class="ntba" href="#">赠送对象<div class="arrow"></div></a>
                                 <ul class="submenu">
                                     <li class="submenu-bar"><a class="subntba">自己</a></li>
                                     <li class="submenu-bar"><a class="subntba">男票</a></li>
@@ -40,7 +40,7 @@
                                     <li class="submenu-bar"><a class="subntba">同事</a></li>
                                 </ul>
                             </li>
-                            <li class="top-nav-bar"><a class="ntba" herf="#">赠送场合<div class="arrow"></div></a>
+                            <li class="top-nav-bar"><a class="ntba" href="#">赠送场合<div class="arrow"></div></a>
                                 <ul class="submenu">
                                     <li class="submenu-bar"><a class="subntba">新年</a></li>
                                     <li class="submenu-bar"><a class="subntba">生日</a></li>
@@ -52,7 +52,7 @@
                                     <li class="submenu-bar"><a class="subntba">圣诞节</a></li>
                                 </ul>
                             </li>
-                            <li class="top-nav-bar"><a class="ntba" herf="#">Ta的个性<div class="arrow"></div></a>
+                            <li class="top-nav-bar"><a class="ntba" href="#">Ta的个性<div class="arrow"></div></a>
                                 <ul class="submenu">
                                     <li class="submenu-bar"><a class="subntba">美物</a></li>
                                     <li class="submenu-bar"><a class="subntba">手工</a></li>
@@ -63,10 +63,10 @@
                                     <li class="submenu-bar"><a class="subntba">科技范</a></li>
                                 </ul>
                             </li>
-                            <li class="top-nav-bar"><a class="ntba" herf="#">下载手机版</a>
+                            <li class="top-nav-bar"><a class="ntba" href="#">下载手机版</a>
                                 <div class="headdownload"></div>
                             </li>
-                            <li class="top-nav-bar"><a class="ntba" herf="#">礼物说企业版</a></li>
+                            <li class="top-nav-bar"><a class="ntba" href="#">礼物说企业版</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -88,7 +88,7 @@
                     <p class="webo">
                         <i class="icon-weibo"></i>
                         <span>
-                            新浪微博:<a herf="#" target="_blank" class="link">@礼物说</a>
+                            新浪微博:<a href="https://weibo.com/571922559?display=0&retcode=6102&is_all=1" target="_blank" class="link">@礼物说</a>
                         </span>
                     </p>
                 </div>
@@ -96,13 +96,19 @@
             </div>
             <div class="recomend">
                 <h3>攻略精选</h3>
-                <ul class="recomend-list" style="height:1512px;" id="recomend">
+                <ul class="recomend-list" style="height:auto" id="recomend">
                    
 
                 </ul>
+                
             </div>
+            <div style="text-align: center"> 
+               <button class="button" onclick="onloadmore()">加载更多</button> 
+            </div>
+            
         </div>
     </div>
+    
 </body>
 
 </html>
