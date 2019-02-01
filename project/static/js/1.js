@@ -108,4 +108,7 @@ function onloadmore() {
 
         loadXMLDoc();
     }
+    else {
+        alert("no");
+    }
 }
