@@ -22,7 +22,7 @@
                     </form>
                 </div>
                 <div class="headright">
-                    <button class="btnsignin" id="btnsignin">登录/注册</button>
+                    <button class="btnsignin" id="btnsignin" onclick="sign()">登录/注册</button>
                 </div>
                 <div class="headnav">
                     <nav>
@@ -88,7 +88,8 @@
                     <p class="webo">
                         <i class="icon-weibo"></i>
                         <span>
-                            新浪微博:<a href="https://weibo.com/571922559?display=0&retcode=6102&is_all=1" target="_blank" class="link">@礼物说</a>
+                            新浪微博:<a href="https://weibo.com/571922559?display=0&retcode=6102&is_all=1" target="_blank"
+                                class="link">@礼物说</a>
                         </span>
                     </p>
                 </div>
@@ -99,13 +100,27 @@
                 <ul class="recomend-list" style="height:auto" id="recomend">
                 </ul>
             </div>
-            
+
         </div>
-        <div style="text-align: center" > 
-            <button  onclick="onloadmore()">加载更多</button> 
-         </div>
+        <div style="text-align: center">
+            <button  id="loadbutton"onclick="onloadmore()">加载更多</button>
+        </div>
+        <div class="bdiv" id="bdiv"></div>
+        <div class="signdiv"id="signdiv">
+            <div class="signhead" >登录礼物说
+                <div style="float:right;cursor: pointer" onclick="clear()">X</div>
+            </div>
+            <p class="user">用户名:
+                <input type="text" placeholder="输入用户名">
+            </p>
+            <p class="password">密码:
+                <input type="text" placeholder="输入密码" >
+            </p>
+            <button class="signbutton" onclick="signin()">登录</button>
+            <button class="signbutton">注册</button>
+        </div>
     </div>
-    
+
 </body>
 
 </html>

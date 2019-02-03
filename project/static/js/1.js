@@ -96,11 +96,26 @@ function state_Change() {
 }
 
 function onloadmore() {
+  var b=document.getElementById("loadbutton");
   if (groupindex * 6 < len) {
     groupindex = groupindex + 1;
 
     loadXMLDoc();
   } else {
-    alert("no");
+    b.innerHTML="没有更多了";
   }
+}
+function sign(){
+  var bdiv=document.getElementById("bdiv");
+  bdiv.style.setProperty('display','block');
+  var signdiv=document.getElementById("signdiv");
+  signdiv.style.setProperty('display','block');
+}
+function clear(){
+  alert("1");
+  var bdiv=document.getElementById("bdiv");
+  bdiv.style.setProperty('display','none');
+  var signdiv=document.getElementById("signdiv");
+  signdiv.style.setProperty('display','none');
+  
 }
