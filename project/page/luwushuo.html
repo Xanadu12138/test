@@ -10,7 +10,7 @@
     <script type="text/javascript" src="../static/js/1.js"></script>
 </head>
 
-<body onload="loadXMLDoc()">
+<body onload="loadXMLDoc('https://easy-mock.com/mock/5c5316067e0da549724ece9f/test/liwushuo','GET')">
     <div class="maintable">
         <div class="main">
             <div class="head">
@@ -108,13 +108,13 @@
         <div class="bdiv" id="bdiv"></div>
         <div class="signdiv"id="signdiv">
             <div class="signhead" >登录礼物说
-                <div style="float:right;cursor: pointer" onclick="clear()">X</div>
+                <div style="float:right;cursor: pointer" onclick="clearbox()">X</div>
             </div>
             <p class="user">用户名:
-                <input type="text" placeholder="输入用户名">
+                <input type="text" placeholder="输入用户名" id="user">
             </p>
             <p class="password">密码:
-                <input type="text" placeholder="输入密码" >
+                <input type="text" placeholder="输入密码" id="password">
             </p>
             <button class="signbutton" onclick="signin()">登录</button>
             <button class="signbutton">注册</button>

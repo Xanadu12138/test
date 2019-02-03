@@ -65,9 +65,10 @@ function recomend(data) {
   }
 }
 var xmlhttp;
-var url = "https://easy-mock.com/mock/5c5316067e0da549724ece9f/test/liwushuo";
+var state;
 
-function loadXMLDoc() {
+
+function loadXMLDoc(url, method1) {
   xmlhttp = null;
   if (window.XMLHttpRequest) { // code for all new browsers
     xmlhttp = new XMLHttpRequest();
@@ -76,7 +77,7 @@ function loadXMLDoc() {
   }
   if (xmlhttp != null) {
     xmlhttp.onreadystatechange = state_Change;
-    xmlhttp.open("GET", url, true);
+    xmlhttp.open(method1, url, true);
     xmlhttp.send(null);
   } else {
     alert("Your browser does not support XMLHTTP.");
@@ -84,11 +85,16 @@ function loadXMLDoc() {
 }
 
 function state_Change() {
+  //alert(xmlhttp.status);
   if (xmlhttp.readyState == 4) { // 4 = "loaded"
     if (xmlhttp.status == 200) { // 200 = OK
       var b = xmlhttp.responseText;
       var bjson = JSON.parse(b);
       recomend(bjson['goods']);
+    } else if (xmlhttp.status == 200 && state == 1) {
+      var signb = xmlhttp.responseText;
+      var signbjson = JSON.parse(signb);
+      alert(signbjson);
     } else {
       alert("Problem retrieving XML data");
     }
@@ -96,26 +102,41 @@ function state_Change() {
 }
 
 function onloadmore() {
-  var b=document.getElementById("loadbutton");
+  var b = document.getElementById("loadbutton");
   if (groupindex * 6 < len) {
     groupindex = groupindex + 1;
 
-    loadXMLDoc();
+    loadXMLDoc("https://easy-mock.com/mock/5c5316067e0da549724ece9f/test/liwushuo", "GET");
   } else {
-    b.innerHTML="没有更多了";
+    b.innerHTML = "没有更多了";
   }
 }
-function sign(){
-  var bdiv=document.getElementById("bdiv");
-  bdiv.style.setProperty('display','block');
-  var signdiv=document.getElementById("signdiv");
-  signdiv.style.setProperty('display','block');
+
+function sign() {
+  var bdiv = document.getElementById("bdiv");
+  bdiv.style.setProperty('display', 'block');
+  var signdiv = document.getElementById("signdiv");
+  signdiv.style.setProperty('display', 'block');
 }
-function clear(){
-  alert("1");
-  var bdiv=document.getElementById("bdiv");
-  bdiv.style.setProperty('display','none');
-  var signdiv=document.getElementById("signdiv");
-  signdiv.style.setProperty('display','none');
-  
+
+function clearbox() {
+  var bdiv = document.getElementById("bdiv");
+  bdiv.style.setProperty('display', 'none');
+  var signdiv = document.getElementById("signdiv");
+  signdiv.style.setProperty('display', 'none');
+
+}
+
+function signin() {
+  var username = document.getElementById("user").value;
+  var password = document.getElementById("password").value;
+  //alert(username + password);
+  state = 1;
+  var url = "http://www.zhengchengfeng.cn:8080/login?username=" + username + "&password=" + password+ "";
+  //alert(url);
+  if (username != "" && password != "") {
+    loadXMLDoc(url, "POST");
+  }
+  else {
+    alert("请输入用户名和密码");}
 }
