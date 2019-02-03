@@ -348,7 +348,7 @@
 }
 .post-item{
     width:310px;
-    height: 346px;
+    height: 400px;
     border-radius: 6px;
     border: solid #dedede thin;
     float: left;
@@ -450,8 +450,8 @@
     position: fixed;
     display: none;
     width: 385px;
-    top:325.5px;
-    left:759px;
+    top:30%;
+    left:40%;
     display: none;
     background-color: #fff;
     border-radius: 10px;
@@ -476,4 +476,19 @@
     left:20px;
     margin-right: 5px;
     position: relative;
+}
+.selfinfo{
+    position: absolute;
+    margin-top: 20px;
+    left: 980px;
+    width: 100px;
+    height: 40x;
+}
+.selfimg{
+    float: left;
+    widows: 30px;
+    height: 30px;
+    margin-right: 10px;
+    background: #333;
+
 }

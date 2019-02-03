@@ -5,7 +5,7 @@ function recomend(data) {
   len = data.length;
   for (var i = 6 * (groupindex - 1); i <= 6 * groupindex - 1; i++) {
     var re = document.getElementById("recomend");
-    if (data[i].background != null) {
+    if (data[i]!= null) {
       if (re != null) {
         var li = document.createElement("li");
         li.className = "post-item";
@@ -66,10 +66,12 @@ function recomend(data) {
 }
 var xmlhttp;
 var state;
-
+var username;
+var password;
 
 function loadXMLDoc(url, method1) {
   xmlhttp = null;
+  //alert(method1);
   if (window.XMLHttpRequest) { // code for all new browsers
     xmlhttp = new XMLHttpRequest();
   } else if (window.ActiveXObject) { // code for IE5 and IE6
@@ -78,23 +80,54 @@ function loadXMLDoc(url, method1) {
   if (xmlhttp != null) {
     xmlhttp.onreadystatechange = state_Change;
     xmlhttp.open(method1, url, true);
-    xmlhttp.send(null);
+    if (method1 == "GET") {
+      xmlhttp.send(null);
+      //alert("1");
+    }
+    if (method1 == "POST") {
+      xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      //alert(username);
+      xmlhttp.send("username=" + username + "&password=" + password);
+    }
   } else {
     alert("Your browser does not support XMLHTTP.");
   }
 }
 
 function state_Change() {
-  //alert(xmlhttp.status);
+  //alert(xmlhttp.readyState);
   if (xmlhttp.readyState == 4) { // 4 = "loaded"
-    if (xmlhttp.status == 200) { // 200 = OK
+    if (xmlhttp.status == 200 && state != 1) { // 200 = OK
       var b = xmlhttp.responseText;
       var bjson = JSON.parse(b);
       recomend(bjson['goods']);
     } else if (xmlhttp.status == 200 && state == 1) {
       var signb = xmlhttp.responseText;
       var signbjson = JSON.parse(signb);
-      alert(signbjson);
+      if (signbjson.errcode == 1) {
+        alert(signbjson.msg);
+      } else if (signbjson.errcode == 2) {
+        alert(signbjson.msg);
+      } else if (signbjson.errcode == 0) {
+        alert(signbjson.msg);
+        var bdiv = document.getElementById("bdiv");
+        bdiv.style.setProperty('display', 'none');
+        var signdiv = document.getElementById("signdiv");
+        signdiv.style.setProperty('display', 'none');
+        var parent=document.getElementById("headright");
+        var child=document.getElementById("btnsignin");
+        parent.removeChild(child);
+        var selfinfo=document.createElement("div");
+        selfinfo.className="selfinfo";
+        parent.appendChild(selfinfo)
+        var selfimg=document.createElement("i");
+        selfimg.className="selfimg";
+        //selfimg.style.background="url("+signbjson.imgUrl+")";
+        selfinfo.appendChild(selfimg);
+        var selfname=document.createElement("a");
+        selfname.innerHTML=username;
+        selfinfo.appendChild(selfname);
+      }
     } else {
       alert("Problem retrieving XML data");
     }
@@ -103,6 +136,7 @@ function state_Change() {
 
 function onloadmore() {
   var b = document.getElementById("loadbutton");
+  state = 2;
   if (groupindex * 6 < len) {
     groupindex = groupindex + 1;
 
@@ -128,15 +162,15 @@ function clearbox() {
 }
 
 function signin() {
-  var username = document.getElementById("user").value;
-  var password = document.getElementById("password").value;
+  username = document.getElementById("user").value;
+  password = document.getElementById("password").value;
   //alert(username + password);
   state = 1;
-  var url = "http://www.zhengchengfeng.cn:8080/login?username=" + username + "&password=" + password+ "";
+  var url = "http://www.zhengchengfeng.cn:8080/login";
   //alert(url);
   if (username != "" && password != "") {
     loadXMLDoc(url, "POST");
+  } else {
+    alert("请输入用户名和密码");
   }
-  else {
-    alert("请输入用户名和密码");}
 }
