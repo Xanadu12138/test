@@ -11,6 +11,11 @@
 </head>
 
 <body onload="loadXMLDoc('https://easy-mock.com/mock/5c5316067e0da549724ece9f/test/liwushuo','GET')">
+    <script>
+    window.onscroll=function(){
+        menuFixed('headnav');
+    }
+    </script>
     <div class="maintable">
         <div class="main">
             <div class="head" id="head">
@@ -24,7 +29,7 @@
                 <div class="headright" id="headright">
                     <button class="btnsignin" id="btnsignin" onclick="sign()">登录/注册</button>
                 </div>
-                <div class="headnav">
+                <div class="headnav" id="headnav">
                     <nav>
                         <ul class="top-nav">
                             <li class="top-nav-bar"><a id="ntba-home" class="active" href="#">首页</a></li>
@@ -100,7 +105,54 @@
                 <ul class="recomend-list" style="height:auto" id="recomend">
                 </ul>
             </div>
-
+            <div class="headnavnone" id="headnavnone" >
+                <nav>
+                    <ul class="top-nav">
+                        <li class="top-nav-bar"><a id="ntba-home" class="active" href="#">首页</a></li>
+                        <li class="top-nav-bar"><a class="ntba" href="#">赠送对象<div class="arrow"></div></a>
+                            <ul class="submenu">
+                                <li class="submenu-bar"><a class="subntba">自己</a></li>
+                                <li class="submenu-bar"><a class="subntba">男票</a></li>
+                                <li class="submenu-bar"><a class="subntba">女盆友</a></li>
+                                <li class="submenu-bar"><a class="subntba">闺蜜们</a></li>
+                                <li class="submenu-bar"><a class="subntba">基友</a></li>
+                                <li class="submenu-bar"><a class="subntba">爸爸妈妈</a></li>
+                                <li class="submenu-bar"><a class="subntba">小盆友</a></li>
+                                <li class="submenu-bar"><a class="subntba">同事</a></li>
+                            </ul>
+                        </li>
+                        <li class="top-nav-bar"><a class="ntba" href="#">赠送场合<div class="arrow"></div></a>
+                            <ul class="submenu">
+                                <li class="submenu-bar"><a class="subntba">新年</a></li>
+                                <li class="submenu-bar"><a class="subntba">生日</a></li>
+                                <li class="submenu-bar"><a class="subntba">纪念日</a></li>
+                                <li class="submenu-bar"><a class="subntba">结婚</a></li>
+                                <li class="submenu-bar"><a class="subntba">感谢</a></li>
+                                <li class="submenu-bar"><a class="subntba">情人节</a></li>
+                                <li class="submenu-bar"><a class="subntba">乔迁</a></li>
+                                <li class="submenu-bar"><a class="subntba">圣诞节</a></li>
+                            </ul>
+                        </li>
+                        <li class="top-nav-bar"><a class="ntba" href="#">Ta的个性<div class="arrow"></div></a>
+                            <ul class="submenu">
+                                <li class="submenu-bar"><a class="subntba">美物</a></li>
+                                <li class="submenu-bar"><a class="subntba">手工</a></li>
+                                <li class="submenu-bar"><a class="subntba">吃货</a></li>
+                                <li class="submenu-bar"><a class="subntba">萌萌哒</a></li>
+                                <li class="submenu-bar"><a class="subntba">动漫迷</a></li>
+                                <li class="submenu-bar"><a class="subntba">小清新</a></li>
+                                <li class="submenu-bar"><a class="subntba">科技范</a></li>
+                            </ul>
+                        </li>
+                        <li class="top-nav-bar"><a class="ntba" href="#">下载手机版</a>
+                            <div class="headdownload"></div>
+                        </li>
+                        <form >
+                            <input type="text" placeholder="搜索礼物攻略"class="nav-searchbox">
+                        </form>
+                    </ul>
+                </nav>
+            </div>
         </div>
         <div style="text-align: center">
             <button  id="loadbutton"onclick="onloadmore()">加载更多</button>
@@ -119,7 +171,9 @@
             <button class="signbutton" onclick="signin()">登录</button>
             <button class="signbutton">注册</button>
         </div>
+        
     </div>
+    
 
 </body>
 

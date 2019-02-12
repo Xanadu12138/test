@@ -94,7 +94,7 @@
     margin: 0px;
     padding: 0px;
     list-style: none;
-
+    position: relative;
 }
 
 .top-nav-bar {
@@ -491,4 +491,24 @@
     margin-right: 10px;
     background: #333;
 
+}
+.headnavnone {
+    height: 40px;
+    background: #f84e4e;
+    clear: both;
+    width: 100%;
+    z-index: 111111;
+    top: 0px;
+    position: fixed;
+    display: none;
+}
+.nav-searchbox{
+    background: #fff;
+    background-clip: padding-box;
+    border: solid red 2px;
+    border-radius: 4px;
+    width: 200px;
+    height: 20px;
+    outline: none;
+    margin-top: 7px;
 }
